@@ -49,33 +49,14 @@ export function MissionSection() {
     >
       <div className="mx-auto max-w-[1220px] px-5 md:px-10">
         {/* Top Heading */}
-        <div className="max-w-xl">
         <div data-mission-text-depth className="max-w-xl">
           <h2 className="text-[30px] font-normal leading-[1.16] tracking-[-0.02em] text-[#2D2D2D] sm:text-[38px]">
             <span className="block overflow-hidden pb-0.5">
-              {MISSION_LINE_1.map((word, idx) => (
-                <span
-                  key={`m1-${idx}`}
-                  data-mission-word
-                  className="mr-[0.24em] inline-block last:mr-0"
-                >
-                  {word}
-                </span>
-              ))}
               <span data-mission-line className="block">
                 {MISSION_LINE_1.join(' ')}
               </span>
             </span>
             <span className="block overflow-hidden pb-0.5">
-              {MISSION_LINE_2.map((word, idx) => (
-                <span
-                  key={`m2-${idx}`}
-                  data-mission-word
-                  className="mr-[0.24em] inline-block last:mr-0"
-                >
-                  {word}
-                </span>
-              ))}
               <span data-mission-line className="block">
                 {MISSION_LINE_2.join(' ')}
               </span>
@@ -105,7 +86,6 @@ export function MissionSection() {
                 alt="SwiftGo customer receiving a fast, reliable delivery"
                 loading="lazy"
                 decoding="async"
-                className="h-full w-full scale-105 object-cover transition-transform duration-700 hover:scale-110"
                 className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
               />
             </div>
@@ -162,7 +142,6 @@ export function MissionSection() {
               alt="SwiftGo customer receiving a fast, reliable delivery"
               loading="lazy"
               decoding="async"
-              className="aspect-[16/10] w-full scale-105 object-cover"
               className="aspect-[16/10] w-full object-cover"
             />
           </div>

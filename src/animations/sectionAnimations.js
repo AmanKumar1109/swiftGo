@@ -137,23 +137,18 @@ export function animateMission(root) {
   if (!root || prefersReducedMotion()) return () => {}
 
   const ctx = gsap.context(() => {
-    // Reversible editorial reveal coordinated with the closing brown container
     // Connected editorial reveal: Brown container closes -> Image mask + settle -> Line-by-line heading -> Desc -> Cards
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: root,
-        start: 'top 80%',
         start: 'top 78%',
         end: 'top 18%',
         scrub: 0.9,
       },
     })
 
-    // 1. Word-level heading stagger + description
     // 1. Image masked wipe + subtle vertical entrance + 1.06 -> 1 scale settle
     tl.fromTo(
-      '[data-mission-word]',
-      { y: 30, opacity: 0 },
       '[data-mission-oval]',
       {
         clipPath: 'inset(0% 100% 0% 0%)',
@@ -165,9 +160,6 @@ export function animateMission(root) {
         clipPath: 'inset(0% 0% 0% 0%)',
         y: 0,
         opacity: 1,
-        stagger: 0.06,
-        ease: 'power2.out',
-        duration: 0.35,
         force3D: true,
         ease: 'power3.out',
         duration: 0.5,
@@ -175,8 +167,6 @@ export function animateMission(root) {
       0,
     )
       .fromTo(
-        '[data-mission-desc]',
-        { y: 20, opacity: 0 },
         '[data-mission-oval-img]',
         { scale: 1.06, force3D: true },
         {
@@ -201,37 +191,22 @@ export function animateMission(root) {
         },
         0.18,
       )
-      // 2. Masked left-to-right wipe + scale/offset settle on image container
       // 3. Supporting paragraph
       .fromTo(
-        '[data-mission-oval]',
         '[data-mission-desc]',
         { y: 20, opacity: 0, force3D: true },
         {
-          clipPath: 'inset(0% 100% 0% 0%)',
-          scale: 0.92,
-          y: 22,
-          opacity: 0.7,
-        },
-        {
-          clipPath: 'inset(0% 0% 0% 0%)',
-          scale: 1,
           y: 0,
           opacity: 1,
-          ease: 'power3.out',
-          duration: 0.55,
           force3D: true,
           ease: 'power2.out',
           duration: 0.35,
         },
-        0.22,
         0.34,
       )
-      // 3. Staggered mission cards
       // 4. Staggered mission cards
       .fromTo(
         '[data-mission-card]',
-        { y: 26, opacity: 0 },
         { y: 26, opacity: 0, force3D: true },
         {
           y: 0,
@@ -241,11 +216,9 @@ export function animateMission(root) {
           ease: 'power2.out',
           duration: 0.4,
         },
-        0.42,
         0.44,
       )
 
-    // Subtle depth parallax on inner image & floating badge accents
     // Gentle scroll depth difference: image vs text block + floating badge accents
     gsap.fromTo(
       '[data-mission-oval-img]',
