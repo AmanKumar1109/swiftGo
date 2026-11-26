@@ -1,0 +1,28 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", "Inter", system-ui, -apple-system, sans-serif;
+  --color-brand-bronze: #A87C56;
+  --color-brand-bronze-light: #D4AE8E;
+  --color-brand-taupe: #6E5846;
+  --color-brand-espresso: #4C3C30;
+  --color-surface-offwhite: #F6F6F6;
+  --color-surface-card: #F3F3F3;
+  --color-ink-primary: #2D2D2D;
+  --color-ink-secondary: #6E6E6E;
+  --color-ink-muted: #999999;
+}
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    background-color: #ffffff;
+    color: var(--color-ink-primary);
+    overflow-x: hidden;
+  }
+}
